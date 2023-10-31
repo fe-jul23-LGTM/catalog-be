@@ -7,7 +7,8 @@ const port: number = 2525;
 app.use(cors());
 
 app.get('/phones', (_: Request, res: Response) => {
-  res.sendStatus(200)
+
+  res.send()
 });
 
 app.get('/phones/:id', (_: Request, res: Response) => {
