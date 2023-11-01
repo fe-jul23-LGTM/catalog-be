@@ -5,12 +5,10 @@ const product = require('../public/api/initial_data/products.json')
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface) {
-    await queryInterface.bulkInsert('product-info', product);
+    await queryInterface.bulkInsert('product_info', product);
   },
 
   async down (queryInterface) {
-    await queryInterface.bulkDelete('product-info', {
-      id: product.map(({ id }) => id),
-    });
+    await queryInterface.bulkDelete('product_info', null, {});
   }
 };

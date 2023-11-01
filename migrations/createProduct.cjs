@@ -1,69 +1,51 @@
 /** @type {import('sequelize-cli').Migration} */
 
 async function up(queryInterface, Sequelize) {
-  await queryInterface.createTable('create-product-info-in-detail', {
+  await queryInterface.createTable('product_info', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
-    namespaceId: {
+    category: {
+      type: Sequelize.STRING,
+    },
+    itemId: {
       type: Sequelize.STRING,
     },
     name: {
       type: Sequelize.STRING,
     },
-    capacityAvailable: {
-      type: Sequelize.ARRAY(Sequelize.STRING),
-    },
-    capacity: {
-      type: Sequelize.STRING,
-    },
-    priceRegular: {
+    fullPrice: {
       type: Sequelize.INTEGER,
     },
-    priceDiscount: {
+    price: {
       type: Sequelize.INTEGER,
-    },
-    colorsAvailable: {
-      type: Sequelize.ARRAY(Sequelize.STRING),
-    },
-    color: {
-      type: Sequelize.STRING,
-    },
-    images: {
-      type: Sequelize.ARRAY(Sequelize.STRING),
-    },
-    description: {
-      type: Sequelize.TEXT,
     },
     screen: {
       type: Sequelize.STRING,
     },
-    resolution: {
+    capacity: {
       type: Sequelize.STRING,
     },
-    processor: {
+    color: {
       type: Sequelize.STRING,
     },
     ram: {
       type: Sequelize.STRING,
     },
-    camera: {
-      type: Sequelize.STRING,
+    year: {
+      type: Sequelize.INTEGER,
     },
-    zoom: {
+    image: {
       type: Sequelize.STRING,
-    },
-    cell: {
-      type: Sequelize.ARRAY(Sequelize.STRING),
     },
   });
 }
 
 async function down(queryInterface) {
-  await queryInterface.dropTable('create-product-info-in-detail');
+  await queryInterface.dropTable('product_info');
 }
 
 module.exports = {
